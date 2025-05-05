@@ -1,0 +1,184 @@
+# API Documentation
+
+## 1. Category API
+
+### 1.1. Get All Categories
+- **Endpoint:** `/api/category`
+- **Method:** GET
+- **Description:** دریافت تمام دسته‌بندی‌ها.
+- **Request Body:** None
+- **Response:** Array of category objects
+
+### 1.2. Get a Single Category by ID
+- **Endpoint:** `/api/category/:id` , example /api/category/66d4d935ad87919cd1c78888 , ایدی به وسیله منگو دی بی ایجاد میشود و مثل جیسون سرور دستی اختصاص نمیابد
+- **Method:** GET
+- **Description:** دریافت یک دسته‌بندی با شناسه خاص.
+- **Request Parameters:**
+  - `id` (String): شناسه دسته‌بندی.
+- **Response:** Category object
+
+### 1.3. Create a New Category
+- **Endpoint:** `/api/category`
+- **Method:** POST
+- **Description:** ایجاد یک دسته‌بندی جدید.
+- **Request Body:**
+  - `name` (String): نام دسته‌بندی.
+- **Response:** Created category object
+
+### 1.4. Update a Category by ID
+- **Endpoint:** `/api/category/:id` , example /api/category/66d4d935ad87919cd1c78888 , ایدی به وسیله منگو دی بی ایجاد میشود و مثل جیسون سرور دستی اختصاص نمیابد
+- **Method:** PUT
+- **Description:** به‌روزرسانی یک دسته‌بندی با شناسه خاص.
+- **Request Parameters:**
+  - `id` (String): شناسه دسته‌بندی.
+- **Request Body:**
+  - `name` (String): نام جدید دسته‌بندی.
+- **Response:** Updated category object
+
+### 1.5. Delete a Category by ID
+- **Endpoint:** `/api/category/:id` , example /api/category/66d4d935ad87919cd1c78888 , ایدی به وسیله منگو دی بی ایجاد میشود و مثل جیسون سرور دستی اختصاص نمیابد
+- **Method:** DELETE
+- **Description:** حذف یک دسته‌بندی با شناسه خاص.
+- **Request Parameters:**
+  - `id` (String): شناسه دسته‌بندی.
+- **Response:** Success message
+
+---
+
+## 2. Items API
+
+### 2.1. Get All Items
+- **Endpoint:** `/api/items`
+- **Method:** GET
+- **Description:** دریافت تمام آیتم‌ها.
+- **Request Body:** None
+- **Response:** Array of item objects
+
+### 2.2. Get a Single Item by ID
+- **Endpoint:** `/api/items/:id` , example /api/items/66d4d935ad87919cd1c78888 , ایدی به وسیله منگو دی بی ایجاد میشود و مثل جیسون سرور دستی اختصاص نمیابد
+- **Method:** GET
+- **Description:** دریافت یک آیتم با شناسه خاص.
+- **Request Parameters:**
+  - `id` (String): شناسه آیتم.
+- **Response:** Item object
+
+### 2.3. Create a New Item
+- **Endpoint:** `/api/items`
+- **Method:** POST
+- **Description:** ایجاد یک آیتم جدید.
+- **Request Body:**
+  - `name` (String): نام آیتم.
+  - `categoryId` (String): شناسه دسته‌بندی.
+  - `price` (Number): قیمت آیتم.
+  - `recipe` (String, optional): توضیحات آیتم.
+- **Response:** Created item object
+
+### 2.4. Update an Item by ID
+- **Endpoint:** `/api/items/:id` , example /api/items/66d4d935ad87919cd1c78888 , ایدی به وسیله منگو دی بی ایجاد میشود و مثل جیسون سرور دستی اختصاص نمیابد
+- **Method:** PUT
+- **Description:** به‌روزرسانی یک آیتم با شناسه خاص.
+- **Request Parameters:**
+  - `id` (String): شناسه آیتم.
+- **Request Body:**
+  - `name` (String): نام جدید آیتم.
+  - `categoryId` (String): شناسه جدید دسته‌بندی.
+  - `price` (Number): قیمت جدید آیتم.
+  - `description` (String, optional): توضیحات جدید آیتم.
+- **Response:** Updated item object
+
+### 2.5. Delete an Item by ID
+- **Endpoint:** `/api/items/:id` , example /api/items/66d4d935ad87919cd1c78888 , ایدی به وسیله منگو دی بی ایجاد میشود و مثل جیسون سرور دستی اختصاص نمیابد
+- **Method:** DELETE
+- **Description:** حذف یک آیتم با شناسه خاص.
+- **Request Parameters:**
+  - `id` (String): شناسه آیتم.
+- **Response:** Success message
+
+---
+
+## 3. Orders API
+
+### 3.1. Get All Orders
+- **Endpoint:** `/api/orders`
+- **Method:** GET
+- **Description:** دریافت تمام سفارشات.
+- **Request Body:** None
+- **Response:** Array of order objects
+
+### 3.2. Get a Single Order by Phone Number
+- **Endpoint:** `/api/orders/:phoneNumber`  , example /api/orders/912 , if you want we can change it to id
+- **Method:** GET
+- **Description:** دریافت یک سفارش با شماره تلفن خاص.
+- **Request Parameters:**
+  - `phoneNumber` (String): شماره تلفن سفارش‌دهنده.
+- **Response:** Order object
+
+### 3.3. Create a New Order
+- **Endpoint:** `/api/orders`
+- **Method:** POST
+- **Description:** ایجاد یک سفارش جدید.
+- **Request Body:**
+  - `phoneNumber` (String): شماره تلفن سفارش‌دهنده.
+  - `items` (Array): آرایه‌ای از آیتم‌های سفارش داده شده.
+  - `totalPrice` (Number): قیمت کل سفارش.
+  - `address` (String, optional): آدرس سفارش‌دهنده.
+- **Response:** Created order object
+
+### 3.4. Update an Order by Phone Number
+- **Endpoint:** `/api/orders/:phoneNumber`  , example /api/orders/912 , if you want we can change it to id
+- **Method:** PUT
+- **Description:** به‌روزرسانی یک سفارش با شماره تلفن خاص.
+- **Request Parameters:**
+  - `phoneNumber` (String): شماره تلفن سفارش‌دهنده.
+- **Request Body:**
+  - `items` (Array): آرایه‌ای از آیتم‌های جدید.
+  - `totalPrice` (Number): قیمت کل جدید.
+  - `address` (String, optional): آدرس جدید سفارش‌دهنده.
+- **Response:** Updated order object
+
+### 3.5. Delete an Order by Phone Number
+- **Endpoint:** `/api/orders/:phoneNumber`  , example /api/orders/912 , if you want we can change it to id
+- **Method:** DELETE
+- **Description:** حذف یک سفارش با شماره تلفن خاص.
+- **Request Parameters:**
+  - `phoneNumber` (String): شماره تلفن سفارش‌دهنده.
+- **Response:** Success message
+
+---
+
+## 4. Upload API
+
+### 4.1. Upload a File
+- **Endpoint:** `/api/upload`
+- **Method:** POST
+- **Description:** آپلود یک فایل.
+- **Request Body:**
+  - `file` (File): فایلی که باید آپلود شود.
+- **Response:** Uploaded file details
+
+### 4.2. Get a File by Name
+- **Endpoint:** `/api/upload/:fileName` , example /api/upload/tea.jpg
+- **Method:** GET
+- **Description:** دریافت یک فایل با نام خاص.
+- **Request Parameters:**
+  - `fileName` (String): نام فایل.
+- **Response:** File content or download
+
+### 4.3. Delete a File by Name
+- **Endpoint:** `/api/upload/:fileName` , example /api/upload/tea.jpg
+- **Method:** DELETE
+- **Description:** حذف یک فایل با نام خاص.
+- **Request Parameters:**
+  - `fileName` (String): نام فایل.
+- **Response:** Success message
+
+
+
+### چند نکته
+اول اینکه شما ایمیج های کتگوری و ایتم رو بر اساس سیستم قبلی خودتون میگرفتید که باید تغییر کنه
+ای دی به وسیله منگو دی بی ایجاد میشه و فرستادن ای دی در فرم دیگه لازم نیست
+در زمان ادد کردن کتگوری یا ایتم میتونید سلکت فایل در فرم داشته باشید که حتما
+name : img 
+باشد 
+برای اپدیت هم همینطور
+

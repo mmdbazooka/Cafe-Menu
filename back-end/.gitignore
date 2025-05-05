@@ -1,0 +1,22 @@
+# پوشه‌های node_modules و build
+node_modules/
+dist/
+build/
+
+# فایل‌های سیستمی
+.DS_Store
+Thumbs.db
+
+# فایل‌های env
+.env
+.env.local
+.env.development
+
+# فایل‌های لاگ
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# پوشه‌های IDE
+.vscode/
+.idea/
